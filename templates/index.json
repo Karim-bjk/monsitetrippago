@@ -41,15 +41,15 @@
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
             "subheading": "Tell your story",
-            "title": "Slide title",
-            "heading_tag": "h0",
+            "title": "Toute ta trousse de toilette dans un seul flacon de la taille d'une tasse.",
+            "heading_tag": "h2",
             "button_text": "",
             "button_link": "",
             "text_color": "#ffffff",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "overlay_color": "#000000",
-            "overlay_opacity": 30,
+            "overlay_opacity": 15,
             "background": "",
             "background_gradient": ""
           }

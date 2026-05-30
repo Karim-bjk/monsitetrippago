@@ -668,10 +668,24 @@
         "button_background": "",
         "button_text_color": ""
       }
+    },
+    "custom_liquid_gMTGbQ": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<div class=\"hero-benefits\">\n  <div class=\"hero-benefits__container\">\n    <div class=\"hero-benefit\">\n      <span class=\"hero-benefit__check\">✓</span>\n      <p class=\"hero-benefit__text\">\n        <strong>Format cabine certifié</strong>\n      </p>\n    </div>\n    <div class=\"hero-benefit\">\n      <span class=\"hero-benefit__check\">✓</span>\n      <p class=\"hero-benefit__text\">\n        <strong>Zéro fuite</strong>, pompe verrouillable\n      </p>\n    </div>\n    <div class=\"hero-benefit\">\n      <span class=\"hero-benefit__check\">✓</span>\n      <p class=\"hero-benefit__text\">\n        <strong>Libère ton bagage cabine</strong>\n      </p>\n    </div>\n  </div>\n</div>\n\n<style>\n  .hero-benefits {\n    background-color: #ffffff;\n    padding: 40px 20px;\n    width: 100%;\n  }\n  \n  .hero-benefits__container {\n    max-width: 1200px;\n    margin: 0 auto;\n    display: flex;\n    flex-direction: column;\n    gap: 18px;\n  }\n  \n  .hero-benefit {\n    display: flex;\n    align-items: center;\n    gap: 14px;\n  }\n  \n  .hero-benefit__check {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    flex-shrink: 0;\n    width: 28px;\n    height: 28px;\n    background-color: #00b67a;\n    color: white;\n    font-weight: bold;\n    font-size: 16px;\n    border-radius: 50%;\n  }\n  \n  .hero-benefit__text {\n    margin: 0;\n    font-size: 16px;\n    line-height: 1.4;\n    color: #2c3e2d;\n  }\n  \n  .hero-benefit__text strong {\n    color: #1a1a1a;\n    font-weight: 600;\n  }\n  \n  /* Desktop : 3 colonnes centrées */\n  @media (min-width: 750px) {\n    .hero-benefits {\n      padding: 48px 32px;\n    }\n    \n    .hero-benefits__container {\n      flex-direction: row;\n      justify-content: center;\n      gap: 60px;\n    }\n    \n    .hero-benefit__text {\n      font-size: 17px;\n    }\n  }\n  \n  /* Mobile : empilé */\n  @media (max-width: 749px) {\n    .hero-benefits {\n      padding: 28px 20px;\n    }\n    \n    .hero-benefit__text {\n      font-size: 15px;\n    }\n    \n    .hero-benefit__check {\n      width: 24px;\n      height: 24px;\n      font-size: 14px;\n    }\n  }\n</style>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
     "image_with_text_overlay_MC3kpR",
+    "custom_liquid_gMTGbQ",
     "logo_list_BMWETD",
     "slideshow_LicYhB",
     "rich_text_q7gcjP",

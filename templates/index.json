@@ -44,6 +44,7 @@
         "enable_parallax": false,
         "image_size": "auto",
         "image": "shopify://shop_images/Banniere_Hero.png",
+        "mobile_image": "shopify://shop_images/Banniere_Hero_Format_mobile.png",
         "mobile_text_position": "place-self-center text-center",
         "desktop_text_position": "sm:place-self-center sm:text-center",
         "text_color": "#ffffff",

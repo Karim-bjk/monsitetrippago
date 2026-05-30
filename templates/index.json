@@ -52,6 +52,19 @@
         "overlay_opacity": 25
       }
     },
+    "custom_liquid_gMTGbQ": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<div class=\"trust-band\">\n  <div class=\"trust-band__container\">\n    <div class=\"trust-band__stars\">\n      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>\n    </div>\n    <div class=\"trust-band__content\">\n      <p class=\"trust-band__headline\">\n        Pour les voyageurs qui refusent de sacrifier leur routine skincare en voyage.\n      </p>\n      <p class=\"trust-band__subtext\">\n        Tes produits préférés · Format cabine certifié · Zéro fuite\n      </p>\n    </div>\n  </div>\n</div>\n\n<style>\n  .trust-band {\n    background-color: #f5f9f3;\n    padding: 28px 20px;\n    border-top: 1px solid #e8efe4;\n    border-bottom: 1px solid #e8efe4;\n  }\n  \n  .trust-band__container {\n    max-width: 1000px;\n    margin: 0 auto;\n    display: flex;\n    align-items: center;       /* ← alignement vertical centré */\n    justify-content: center;\n    gap: 24px;\n    flex-wrap: wrap;\n  }\n  \n  .trust-band__stars {\n    display: flex;\n    gap: 3px;\n    font-size: 26px;            /* ← étoiles légèrement plus grosses */\n    color: #00b67a;\n    line-height: 1;\n    flex-shrink: 0;\n    align-self: center;          /* ← force le centrage vertical */\n  }\n  \n  .trust-band__content {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    text-align: left;            /* ← texte aligné à gauche pour pro look */\n    justify-content: center;\n  }\n  \n  .trust-band__headline {\n    margin: 0;\n    font-size: 16px;\n    font-weight: 600;\n    color: #1a1a1a;\n    line-height: 1.35;\n  }\n  \n  .trust-band__subtext {\n    margin: 0;\n    font-size: 14px;\n    font-weight: 400;\n    color: #5a6b5d;\n    line-height: 1.4;\n  }\n  \n  /* Desktop */\n  @media (min-width: 750px) {\n    .trust-band { \n      padding: 32px; \n    }\n    .trust-band__headline { \n      font-size: 17px; \n    }\n    .trust-band__subtext { \n      font-size: 15px; \n    }\n    .trust-band__stars { \n      font-size: 28px; \n    }\n  }\n  \n  /* Mobile : étoiles au-dessus, texte centré */\n  @media (max-width: 749px) {\n    .trust-band__container { \n      flex-direction: column; \n      gap: 12px; \n    }\n    .trust-band__content {\n      text-align: center;          /* ← texte centré sur mobile */\n    }\n    .trust-band__headline { \n      font-size: 14px; \n      font-weight: 600; \n    }\n    .trust-band__subtext { \n      font-size: 12px; \n      line-height: 1.45; \n    }\n    .trust-band__stars { \n      font-size: 28px; \n    }\n  }\n</style>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "logo_list_BMWETD": {
       "type": "logo-list",
       "blocks": {
@@ -667,19 +680,6 @@
         "contact_text_color": "",
         "button_background": "",
         "button_text_color": ""
-      }
-    },
-    "custom_liquid_gMTGbQ": {
-      "type": "custom-liquid",
-      "name": "Custom Liquid",
-      "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": false,
-        "remove_horizontal_spacing": false,
-        "liquid": "<div class=\"hero-benefits\">\n  <div class=\"hero-benefits__container\">\n    <div class=\"hero-benefit\">\n      <span class=\"hero-benefit__check\">✓</span>\n      <p class=\"hero-benefit__text\">\n        <strong>Format cabine certifié</strong>\n      </p>\n    </div>\n    <div class=\"hero-benefit\">\n      <span class=\"hero-benefit__check\">✓</span>\n      <p class=\"hero-benefit__text\">\n        <strong>Zéro fuite</strong>, pompe verrouillable\n      </p>\n    </div>\n    <div class=\"hero-benefit\">\n      <span class=\"hero-benefit__check\">✓</span>\n      <p class=\"hero-benefit__text\">\n        <strong>Libère ton bagage cabine</strong>\n      </p>\n    </div>\n  </div>\n</div>\n\n<style>\n  .hero-benefits {\n    background-color: #ffffff;\n    padding: 40px 20px;\n    width: 100%;\n  }\n  \n  .hero-benefits__container {\n    max-width: 1200px;\n    margin: 0 auto;\n    display: flex;\n    flex-direction: column;\n    gap: 18px;\n  }\n  \n  .hero-benefit {\n    display: flex;\n    align-items: center;\n    gap: 14px;\n  }\n  \n  .hero-benefit__check {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    flex-shrink: 0;\n    width: 28px;\n    height: 28px;\n    background-color: #00b67a;\n    color: white;\n    font-weight: bold;\n    font-size: 16px;\n    border-radius: 50%;\n  }\n  \n  .hero-benefit__text {\n    margin: 0;\n    font-size: 16px;\n    line-height: 1.4;\n    color: #2c3e2d;\n  }\n  \n  .hero-benefit__text strong {\n    color: #1a1a1a;\n    font-weight: 600;\n  }\n  \n  /* Desktop : 3 colonnes centrées */\n  @media (min-width: 750px) {\n    .hero-benefits {\n      padding: 48px 32px;\n    }\n    \n    .hero-benefits__container {\n      flex-direction: row;\n      justify-content: center;\n      gap: 60px;\n    }\n    \n    .hero-benefit__text {\n      font-size: 17px;\n    }\n  }\n  \n  /* Mobile : empilé */\n  @media (max-width: 749px) {\n    .hero-benefits {\n      padding: 28px 20px;\n    }\n    \n    .hero-benefit__text {\n      font-size: 15px;\n    }\n    \n    .hero-benefit__check {\n      width: 24px;\n      height: 24px;\n      font-size: 14px;\n    }\n  }\n</style>",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
       }
     }
   },

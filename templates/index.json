@@ -65,75 +65,13 @@
         "text_color": ""
       }
     },
-    "logo_list_BMWETD": {
-      "type": "logo-list",
-      "blocks": {
-        "logo_47rfKK": {
-          "type": "logo",
-          "settings": {
-            "logo_width": 120,
-            "link": ""
-          }
-        },
-        "logo_fhemRy": {
-          "type": "logo",
-          "settings": {
-            "logo_width": 120,
-            "link": ""
-          }
-        },
-        "logo_UHE7bx": {
-          "type": "logo",
-          "settings": {
-            "logo_width": 120,
-            "link": ""
-          }
-        },
-        "logo_WcfwFq": {
-          "type": "logo",
-          "settings": {
-            "logo_width": 120,
-            "link": ""
-          }
-        },
-        "logo_VRCJWc": {
-          "type": "logo",
-          "settings": {
-            "logo_width": 120,
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo_47rfKK",
-        "logo_fhemRy",
-        "logo_UHE7bx",
-        "logo_WcfwFq",
-        "logo_VRCJWc"
-      ],
-      "name": "Logo list",
-      "settings": {
-        "full_width": true,
-        "stack_mobile": true,
-        "title": "Logo list",
-        "content": "",
-        "text_alignment": "start",
-        "items_per_row": 5,
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "logo_item_background": "",
-        "logo_item_border": ""
-      }
-    },
     "slideshow_LicYhB": {
       "type": "slideshow",
       "blocks": {
         "image_VchN6t": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/image_benefices.png",
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
@@ -686,7 +624,6 @@
   "order": [
     "image_with_text_overlay_MC3kpR",
     "custom_liquid_gMTGbQ",
-    "logo_list_BMWETD",
     "slideshow_LicYhB",
     "rich_text_q7gcjP",
     "video_XJe6Rr",

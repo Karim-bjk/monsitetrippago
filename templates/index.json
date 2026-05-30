@@ -68,27 +68,6 @@
     "slideshow_LicYhB": {
       "type": "slideshow",
       "blocks": {
-        "image_VchN6t": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_benefices.png",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "subheading": "Tell your story",
-            "title": "Slide 1",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30,
-            "background": "",
-            "background_gradient": ""
-          }
-        },
         "image_qdM6VN": {
           "type": "image",
           "settings": {
@@ -112,7 +91,6 @@
         }
       },
       "block_order": [
-        "image_VchN6t",
         "image_qdM6VN"
       ],
       "name": "Slideshow",
@@ -135,14 +113,14 @@
         "subheading_K6tmzY": {
           "type": "subheading",
           "settings": {
-            "text": "Subheading"
+            "text": "Le flacon 4 en 1 en action"
           }
         },
         "heading_WWdMYt": {
           "type": "heading",
           "settings": {
-            "text": "Heading",
-            "heading_tag": "h1",
+            "text": "Voici comment ça marche !",
+            "heading_tag": "h2",
             "text_color": "",
             "gradient": ""
           }
@@ -150,7 +128,7 @@
         "richtext_4YRTfh": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "content": ""
           }
         }
       },
@@ -175,31 +153,23 @@
         "play_LtVd7V": {
           "type": "play",
           "settings": {}
-        },
-        "heading_UWGP3P": {
-          "type": "heading",
-          "settings": {
-            "text": "Video",
-            "heading_tag": "h1"
-          }
         }
       },
       "block_order": [
-        "play_LtVd7V",
-        "heading_UWGP3P"
+        "play_LtVd7V"
       ],
       "name": "Video",
       "settings": {
         "full_width": true,
         "allow_transparent_header": false,
-        "autoplay": false,
+        "autoplay": true,
         "video_size": "auto",
         "video": "shopify://files/videos/vidéo présentation produit.mp4",
         "mobile_video": "shopify://files/videos/vidéo présentation produit.mp4",
         "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "text_color": "#ffffff",
         "overlay_color": "#000000",
-        "overlay_opacity": 30
+        "overlay_opacity": 0
       }
     },
     "rich_text_ppnHyf": {

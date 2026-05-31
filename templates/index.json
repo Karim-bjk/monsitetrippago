@@ -212,6 +212,115 @@
         "text_color": ""
       }
     },
+    "avis_clients_trippago_AbBCeG": {
+      "type": "avis-clients-trippago",
+      "blocks": {
+        "testimonial_aieepD": {
+          "type": "testimonial",
+          "settings": {
+            "customer_photo": "shopify://shop_images/client_7.avif",
+            "customer_name": "Camille D.",
+            "customer_age": "32 ans",
+            "customer_city": "Lyon",
+            "star_rating": 5,
+            "show_objection_badge": true,
+            "objection_text": "Objection traitée : contenance",
+            "review_text": "J'étais sceptique sur la contenance — 30 ml ça paraît rien. Mais en réalité, ça me fait largement une semaine de voyage. Et le fait de tout avoir dans un seul flacon, c'est juste un confort fou.",
+            "show_verified_badge": true
+          }
+        },
+        "testimonial_8CEALw": {
+          "type": "testimonial",
+          "settings": {
+            "customer_photo": "shopify://shop_images/image_client_1.jpg",
+            "customer_name": "Thomas R.",
+            "customer_age": "41 ans",
+            "customer_city": "Paris",
+            "star_rating": 5,
+            "show_objection_badge": true,
+            "objection_text": "Objection traitée : étanchéité",
+            "review_text": "Je voyage 2 fois par mois pour le boulot. Avant, ma trousse était une zone de guerre. Six mois d'utilisation, zéro fuite. La pompe se verrouille, le double joint tient parfaitement.",
+            "show_verified_badge": true
+          }
+        },
+        "testimonial_jjRbwB": {
+          "type": "testimonial",
+          "settings": {
+            "customer_photo": "shopify://shop_images/image_client_3.jpg",
+            "customer_name": "Sophie M.",
+            "customer_age": "29 ans",
+            "customer_city": "Bordeaux",
+            "star_rating": 5,
+            "show_objection_badge": true,
+            "objection_text": "Objection traitée : qualité",
+            "review_text": "J'avais peur que ce soit du bas de gamme. Au final, c'est solide, les flacons internes se démontent pour le nettoyage. Et je peux enfin emmener MES produits, fini les soins d'hôtel douteux.",
+            "show_verified_badge": true
+          }
+        },
+        "testimonial_V6UnB6": {
+          "type": "testimonial",
+          "settings": {
+            "customer_photo": "shopify://shop_images/image_client_13.avif",
+            "customer_name": "Yanis B.",
+            "customer_age": "35 ans",
+            "customer_city": "Marseille",
+            "star_rating": 5,
+            "show_objection_badge": true,
+            "objection_text": "Objection traitée : format cabine",
+            "review_text": "J'avais peur de galérer aux contrôles à l'aéroport. Avec 30 ml par flacon, je passe la sécurité sans rien sortir de ma valise cabine. Fini les produits confisqués — exactement ce qu'il me fallait pour mes allers-retours.",
+            "show_verified_badge": true
+          }
+        },
+        "testimonial_WiRF3p": {
+          "type": "testimonial",
+          "settings": {
+            "customer_photo": "shopify://shop_images/image_client_12.png",
+            "customer_name": "Léa F.",
+            "customer_age": "27 ans",
+            "customer_city": "Toulouse",
+            "star_rating": 5,
+            "show_objection_badge": true,
+            "objection_text": "Objection traitée : remplissage",
+            "review_text": "Je pensais que remplir ces petits flacons serait une corvée pleine de débordements. En fait, l'ouverture large fait que je remplis tout en dix secondes sans en mettre partout. Même mon gel douche un peu épais passe sans souci.",
+            "show_verified_badge": true
+          }
+        },
+        "testimonial_wLUMQX": {
+          "type": "testimonial",
+          "settings": {
+            "customer_photo": "shopify://shop_images/image_client_10.avif",
+            "customer_name": "Nicolas P.",
+            "customer_age": "38 ans",
+            "customer_city": "Nantes",
+            "star_rating": 5,
+            "show_objection_badge": true,
+            "objection_text": "Objection traitée : gain de place",
+            "review_text": "Sceptique au départ : un seul truc pour remplacer mes 4 flacons ? Au final il prend la place d'un déodorant dans mon sac, et j'ai shampoing, après-shampoing, gel douche et crème toujours sur moi. Mon sac de toilette a maigri de moitié.",
+            "show_verified_badge": true
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_aieepD",
+        "testimonial_8CEALw",
+        "testimonial_jjRbwB",
+        "testimonial_V6UnB6",
+        "testimonial_WiRF3p",
+        "testimonial_wLUMQX"
+      ],
+      "name": "Avis clients trippago",
+      "settings": {
+        "heading": "Ils ont adopté Trippago",
+        "heading_color": "#1F3D2C",
+        "heading_size": 36,
+        "bg_color": "#FAFAF7",
+        "card_bg": "#FFFFFF",
+        "star_color": "#00B67A",
+        "accent_color": "#A8D470",
+        "top_padding": 80,
+        "bottom_padding": 80
+      }
+    },
     "1780182895f878666b": {
       "type": "_blocks",
       "settings": {}
@@ -494,6 +603,7 @@
     "rich_text_q7gcjP",
     "video_XJe6Rr",
     "rich_text_ppnHyf",
+    "avis_clients_trippago_AbBCeG",
     "1780182895f878666b",
     "17801855621b1488ff",
     "1780185967c1c00274",

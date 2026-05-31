@@ -1,6 +1,702 @@
+{% doc %}
+  @prompt
+    Create a custom Shopify section called "Avis clients trippago - Grande image" with a LARGE IMAGE-DOMINANT card layout (like PopCard testimonials). The section must be fully customizable from the Shopify theme editor.
+    
+    ═══════════════════════════════════════
+    CARD LAYOUT STRUCTURE (CRITICAL):
+    ═══════════════════════════════════════
+    Each review card follows this vertical structure:
+    1. TOP 60% of card height: LARGE customer photo (square or 4:5 ratio, fills the full card width)
+    2. BOTTOM 40% of card height: Text content area with padding
+    
+    The customer photo is the DOMINANT visual element, NOT a small avatar circle.
+    
+    ═══════════════════════════════════════
+    SECTION SETTINGS (theme editor controls):
+    ═══════════════════════════════════════
+    
+    GENERAL SETTINGS:
+    - Section heading: text input (default: "Ils l'ont essayé, ils ne voyagent plus sans.")
+    - Section subheading: text input
+    - Heading color: color picker (default: #1F3D2C)
+    - Section background color: color picker (default: #FFFFFF)
+    - Section padding top/bottom: range sliders (20px-120px)
+    - Layout: select (Grid 3 columns / Carousel slider)
+    - Number of cards visible on desktop: range slider (2 to 4, default 3)
+    - Number of cards visible on mobile: range slider (1 to 2, default 1)
+    
+    CARD STYLE SETTINGS:
+    - Card background color: color picker (default: #FFFFFF)
+    - Card border radius: range slider (0-32px, default 16px)
+    - Card shadow: enable/disable toggle (default: enabled)
+    - Card shadow intensity: range slider (light/medium/strong)
+    - Gap between cards: range slider (12px-40px, default 24px)
+    
+    IMAGE SETTINGS (CRITICAL — LARGE IMAGE):
+    - Image aspect ratio: select dropdown (Square 1:1 / Portrait 4:5 / Landscape 16:9)
+    - Image fit: select (Cover / Contain)
+    - Image height: range slider (200px-500px, default 300px)
+    - Image border radius: range slider (0-16px, default 0px = follows card radius on top)
+    
+    STAR RATING SETTINGS:
+    - Filled star color: color picker (default: #00B67A Trustpilot green)
+    - Empty star color: color picker (default: #E0E0E0)
+    - Star size: range slider (16-32px, default 20px)
+    - Star position: select (Above name / Below name / Above review text)
+    
+    TEXT SETTINGS:
+    - Review text color: color picker (default: #2C2C2C)
+    - Customer name color: color picker (default: #1F3D2C)
+    - Customer info color: color picker (default: #5A6B5D)
+    - Show verified badge: toggle (default: enabled)
+    - Verified badge background: color picker (default: #A8D470)
+    - Verified badge text color: color picker (default: #FFFFFF)
+    
+    ═══════════════════════════════════════
+    BLOCKS (each block = 1 customer review):
+    ═══════════════════════════════════════
+    Support up to 9 review blocks. Each block contains:
+    
+    PER REVIEW BLOCK:
+    - Enable testimonial: toggle (default: enabled)
+    - Customer photo: image picker (LARGE image, recommended 600x600px minimum)
+    - Photo focal point: select (Center / Top / Bottom)
+    - Customer name: text input
+    - Customer age: text input
+    - Customer city: text input
+    - Star rating: range slider (1-5, default 5)
+    - Show objection label: toggle
+    - Objection label text: text input
+    - Review text: rich textarea (multiline)
+    - Show verified badge: toggle per review
+    
+    ═══════════════════════════════════════
+    CARD CONTENT LAYOUT (text area below image):
+    ═══════════════════════════════════════
+    1. Star rating (5 stars in selected color)
+    2. Customer info row: Name (bold) + " · " + Age + " · " + City
+    3. Optional verified badge (small pill with checkmark)
+    4. Review text (italic, with quote marks)
+    5. Optional objection label at the top (small uppercase grey text)
+    
+    ═══════════════════════════════════════
+    LAYOUT REQUIREMENTS:
+    ═══════════════════════════════════════
+    
+    DESKTOP (>750px):
+    - 3 cards side by side (or based on setting)
+    - Cards equal width, max 380px each
+    - Image fills full width of card top portion
+    - Card shadow visible for premium feel
+    
+    MOBILE (<750px):
+    - 1 card visible at a time (carousel) OR stacked
+    - Horizontal scroll snap for carousel mode
+    - Card width: 85% of viewport
+    - Touch-friendly swipe with momentum
+    - Pagination dots visible below carousel
+    
+    ═══════════════════════════════════════
+    IMAGE HANDLING (CRITICAL):
+    ═══════════════════════════════════════
+    - Images must fill the entire top portion of the card (NO white space around)
+    - Use object-fit: cover for consistent sizing
+    - Lazy loading enabled
+    - Responsive srcset for different screen sizes
+    - Maintain aspect ratio across all cards
+    - High-quality rendering (no pixelation)
+    
+    ═══════════════════════════════════════
+    DEFAULT BLOCKS (3 placeholder testimonials):
+    ═══════════════════════════════════════
+    
+    TESTIMONIAL 1:
+    - Name: Camille D.
+    - Age: 32 ans
+    - City: Lyon
+    - Rating: 5
+    - Photo: placeholder
+    - Review: "J'étais sceptique sur la contenance — 30 ml ça paraît rien. Mais en réalité, ça me fait largement une semaine de voyage. J'ai passé la sécurité de l'aéroport en moins de 15 secondes à Roissy."
+    
+    TESTIMONIAL 2:
+    - Name: Thomas R.
+    - Age: 41 ans
+    - City: Paris
+    - Rating: 5
+    - Photo: placeholder
+    - Review: "Je voyage 2 fois par mois pour le boulot. Six mois d'utilisatio
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-testimonials-block-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background_color }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    {% if block.settings.card_shadow %}
+      {% case block.settings.shadow_intensity %}
+        {% when 'light' %}
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        {% when 'medium' %}
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        {% when 'strong' %}
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+      {% endcase %}
+    {% endif %}
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ai-testimonials-block-{{ ai_gen_id }}:hover {
+    {% if block.settings.card_shadow %}
+      {% case block.settings.shadow_intensity %}
+        {% when 'light' %}
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        {% when 'medium' %}
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+        {% when 'strong' %}
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      {% endcase %}
+    {% endif %}
+  }
+
+  .ai-testimonial-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.image_height }}px;
+    position: relative;
+    overflow: hidden;
+    {% if block.settings.image_border_radius > 0 %}
+      border-radius: {{ block.settings.image_border_radius }}px {{ block.settings.image_border_radius }}px 0 0;
+    {% endif %}
+  }
+
+  .ai-testimonial-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: {{ block.settings.image_fit }};
+    display: block;
+  }
+
+  .ai-testimonial-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-testimonial-image-placeholder-{{ ai_gen_id }} svg {
+    width: 80px;
+    height: 80px;
+    opacity: 0.3;
+  }
+
+  .ai-testimonial-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-testimonial-content-{{ ai_gen_id }} {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+  }
+
+  .ai-testimonial-objection-{{ ai_gen_id }} {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #999999;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .ai-testimonial-stars-{{ ai_gen_id }} {
+    display: flex;
+    gap: 4px;
+  }
+
+  .ai-testimonial-star-{{ ai_gen_id }} {
+    width: {{ block.settings.star_size }}px;
+    height: {{ block.settings.star_size }}px;
+  }
+
+  .ai-testimonial-star-{{ ai_gen_id }}.filled {
+    color: {{ block.settings.star_filled_color }};
+  }
+
+  .ai-testimonial-star-{{ ai_gen_id }}.empty {
+    color: {{ block.settings.star_empty_color }};
+  }
+
+  .ai-testimonial-customer-info-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ai-testimonial-customer-name-{{ ai_gen_id }} {
+    font-weight: 600;
+    color: {{ block.settings.customer_name_color }};
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .ai-testimonial-customer-details-{{ ai_gen_id }} {
+    color: {{ block.settings.customer_info_color }};
+    font-size: 14px;
+  }
+
+  .ai-testimonial-verified-badge-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background-color: {{ block.settings.verified_badge_background }};
+    color: {{ block.settings.verified_badge_text_color }};
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .ai-testimonial-verified-icon-{{ ai_gen_id }} {
+    width: 14px;
+    height: 14px;
+  }
+
+  .ai-testimonial-text-{{ ai_gen_id }} {
+    color: {{ block.settings.review_text_color }};
+    font-size: 15px;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .ai-testimonial-text-{{ ai_gen_id }}::before {
+    content: '"';
+  }
+
+  .ai-testimonial-text-{{ ai_gen_id }}::after {
+    content: '"';
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-testimonial-image-wrapper-{{ ai_gen_id }} {
+      height: {{ block.settings.image_height | times: 0.8 }}px;
+    }
+
+    .ai-testimonial-content-{{ ai_gen_id }} {
+      padding: 20px;
+    }
+  }
+{% endstyle %}
+
+<div
+  class="ai-testimonials-block-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-testimonial-image-wrapper-{{ ai_gen_id }}">
+    {% if block.settings.customer_photo %}
+      <img
+        src="{{ block.settings.customer_photo | image_url: width: 800 }}"
+        srcset="{{ block.settings.customer_photo | image_url: width: 400 }} 400w,
+                {{ block.settings.customer_photo | image_url: width: 600 }} 600w,
+                {{ block.settings.customer_photo | image_url: width: 800 }} 800w"
+        sizes="(max-width: 749px) 100vw, 400px"
+        alt="{{ block.settings.customer_name | escape }}"
+        loading="lazy"
+        class="ai-testimonial-image-{{ ai_gen_id }}"
+        style="object-position: {{ block.settings.photo_focal_point }};"
+      >
+    {% else %}
+      <div class="ai-testimonial-image-placeholder-{{ ai_gen_id }}">
+        {{ 'image' | placeholder_svg_tag }}
+        <div class="ai-testimonial-empty-state-{{ ai_gen_id }}">
+          Ajoutez une photo client
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="ai-testimonial-content-{{ ai_gen_id }}">
+    {% if block.settings.show_objection_label and block.settings.objection_label_text != blank %}
+      <p class="ai-testimonial-objection-{{ ai_gen_id }}">{{ block.settings.objection_label_text }}</p>
+    {% endif %}
+
+    {% if block.settings.star_position == 'above_name' %}
+      <div class="ai-testimonial-stars-{{ ai_gen_id }}">
+        {% for i in (1..5) %}
+          <svg
+            class="ai-testimonial-star-{{ ai_gen_id }} {% if i <= block.settings.star_rating %}filled{% else %}empty{% endif %}"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="ai-testimonial-customer-info-{{ ai_gen_id }}">
+      {% if block.settings.customer_name != blank %}
+        <span class="ai-testimonial-customer-name-{{ ai_gen_id }}">{{ block.settings.customer_name }}</span>
+      {% endif %}
+      {% if block.settings.customer_age != blank or block.settings.customer_city != blank %}
+        <span class="ai-testimonial-customer-details-{{ ai_gen_id }}">
+          {% if block.settings.customer_age != blank %}{{ block.settings.customer_age }}{% endif %}
+          {% if block.settings.customer_age != blank and block.settings.customer_city != blank %} · {% endif %}
+          {% if block.settings.customer_city != blank %}{{ block.settings.customer_city }}{% endif %}
+        </span>
+      {% endif %}
+    </div>
+
+    {% if block.settings.star_position == 'below_name' %}
+      <div class="ai-testimonial-stars-{{ ai_gen_id }}">
+        {% for i in (1..5) %}
+          <svg
+            class="ai-testimonial-star-{{ ai_gen_id }} {% if i <= block.settings.star_rating %}filled{% else %}empty{% endif %}"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if block.settings.show_verified_badge %}
+      <div class="ai-testimonial-verified-badge-{{ ai_gen_id }}">
+        <svg
+          class="ai-testimonial-verified-icon-{{ ai_gen_id }}"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        Achat vérifié
+      </div>
+    {% endif %}
+
+    {% if block.settings.star_position == 'above_review' %}
+      <div class="ai-testimonial-stars-{{ ai_gen_id }}">
+        {% for i in (1..5) %}
+          <svg
+            class="ai-testimonial-star-{{ ai_gen_id }} {% if i <= block.settings.star_rating %}filled{% else %}empty{% endif %}"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if block.settings.review_text != blank %}
+      <p class="ai-testimonial-text-{{ ai_gen_id }}">{{ block.settings.review_text }}</p>
+    {% endif %}
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Avis client grande image",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Customer photo"
+    },
+    {
+      "type": "image_picker",
+      "id": "customer_photo",
+      "label": "Photo"
+    },
+    {
+      "type": "select",
+      "id": "photo_focal_point",
+      "label": "Photo focal point",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Customer information"
+    },
+    {
+      "type": "text",
+      "id": "customer_name",
+      "label": "Name",
+      "default": "Camille D."
+    },
+    {
+      "type": "text",
+      "id": "customer_age",
+      "label": "Age",
+      "default": "32 ans"
+    },
+    {
+      "type": "text",
+      "id": "customer_city",
+      "label": "City",
+      "default": "Lyon"
+    },
+    {
+      "type": "range",
+      "id": "star_rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Star rating",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Review content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_objection_label",
+      "label": "Show objection label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "objection_label_text",
+      "label": "Objection label text"
+    },
+    {
+      "type": "textarea",
+      "id": "review_text",
+      "label": "Review text",
+      "default": "J'étais sceptique sur la contenance — 30 ml ça paraît rien. Mais en réalité, ça me fait largement une semaine de voyage."
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "card_shadow",
+      "label": "Enable shadow",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "shadow_intensity",
+      "label": "Shadow intensity",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "strong",
+          "label": "Strong"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Image settings"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 200,
+      "max": 500,
+      "step": 20,
+      "unit": "px",
+      "label": "Image height",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 16,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Star rating"
+    },
+    {
+      "type": "color",
+      "id": "star_filled_color",
+      "label": "Filled star color",
+      "default": "#00B67A"
+    },
+    {
+      "type": "color",
+      "id": "star_empty_color",
+      "label": "Empty star color",
+      "default": "#E0E0E0"
+    },
+    {
+      "type": "range",
+      "id": "star_size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Star size",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "star_position",
+      "label": "Star position",
+      "options": [
+        {
+          "value": "above_name",
+          "label": "Above name"
+        },
+        {
+          "value": "below_name",
+          "label": "Below name"
+        },
+        {
+          "value": "above_review",
+          "label": "Above review text"
+        }
+      ],
+      "default": "above_name"
+    },
+    {
+      "type": "header",
+      "content": "Text colors"
+    },
+    {
+      "type": "color",
+      "id": "review_text_color",
+      "label": "Review text color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "color",
+      "id": "customer_name_color",
+      "label": "Customer name color",
+      "default": "#1F3D2C"
+    },
+    {
+      "type": "color",
+      "id": "customer_info_color",
+      "label": "Customer info color",
+      "default": "#5A6B5D"
+    },
+    {
+      "type": "header",
+      "content": "Verified badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_verified_badge",
+      "label": "Show verified badge",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "verified_badge_background",
+      "label": "Badge background",
+      "default": "#A8D470"
+    },
+    {
+      "type": "color",
+      "id": "verified_badge_text_color",
+      "label": "Badge text color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Avis client grande image"
+    }
+  ]
+}
 {% endschema %}

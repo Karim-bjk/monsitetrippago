@@ -310,10 +310,10 @@
       ],
       "name": "Avis clients trippago",
       "settings": {
-        "heading": "Ils ont adopté Trippago",
+        "heading": "",
         "heading_color": "#1F3D2C",
         "heading_size": 36,
-        "bg_color": "#FAFAF7",
+        "bg_color": "#ffffff",
         "card_bg": "#FFFFFF",
         "star_color": "#00B67A",
         "accent_color": "#A8D470",

@@ -103,7 +103,7 @@
         "transition_type": "fade_with_text",
         "autoplay": false,
         "cycle_speed": 6,
-        "background": "#F2F2F2",
+        "background": "#f2f2f2",
         "background_gradient": ""
       }
     },
@@ -193,7 +193,7 @@
         "richtext_XXyMaf": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "content": ""
           }
         }
       },
@@ -214,70 +214,64 @@
     },
     "1780182895f878666b": {
       "type": "_blocks",
+      "settings": {}
+    },
+    "17801855621b1488ff": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1780185967c1c00274": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1780186698dd0a27aa": {
+      "type": "_blocks",
       "blocks": {
-        "ai_gen_block_06571b5_86fH9d": {
-          "type": "ai_gen_block_06571b5",
+        "ai_gen_block_049ba7e_mwrDGr": {
+          "type": "ai_gen_block_049ba7e",
           "settings": {
-            "section_heading": "Ils l'ont essayé, ils ne voyagent plus sans.",
-            "section_subheading": "",
-            "heading_font_size": 40,
+            "section_heading": "",
             "heading_color": "#1F3D2C",
-            "section_background_color": "#FFFFFF",
-            "section_padding_top": 60,
-            "section_padding_bottom": 60,
-            "layout": "grid",
-            "mobile_layout": "carousel",
-            "filled_star_color": "#00B67A",
-            "empty_star_color": "#E0E0E0",
-            "star_size": 20,
-            "card_background_color": "#FAFAF7",
-            "card_border_radius": 12,
-            "card_padding": 24,
-            "card_text_color": "#2C2C2C",
-            "card_border": false,
-            "card_border_color": "#E8EFE4",
-            "card_shadow": true,
-            "image_shape": "circle",
-            "image_size": 64,
-            "image_border": true,
-            "image_border_color": "#A8D470",
-            "enable_testimonial_1": true,
+            "heading_size": 36,
+            "background_color": "#ffffff",
+            "section_top_padding": 80,
+            "section_bottom_padding": 80,
+            "card_background_color": "#FFFFFF",
+            "star_color": "#00B67A",
+            "accent_color": "#A8D470",
             "customer_photo_1": "shopify://shop_images/client_7.avif",
-            "customer_name_1": "Emilie R.",
+            "customer_name_1": "Camille D.",
             "customer_age_1": "32 ans",
             "customer_city_1": "Lyon",
             "star_rating_1": 5,
-            "objection_label_1": "Objection traitée : « 30 ml c'est petit »",
-            "objection_label_color_1": "#5A6B5D",
-            "review_text_1": "<p>J'étais sceptique sur la contenance — 30 ml ça paraît rien. Mais en réalité, ça me fait largement une semaine de voyage en cheveux longs. J'ai passé la sécurité de l'aéroport en moins de 15 secondes à Roissy, le contrôleur n'a même pas ouvert mon sac. Plus jamais je ne paie de bagage en soute juste à cause des liquides.</p>",
+            "show_objection_badge_1": true,
+            "objection_text_1": "Objection traitée : contenance",
+            "review_text_1": "J'étais sceptique sur la contenance — 30 ml ça paraît rien. Mais en réalité, ça me fait largement une semaine de voyage. Et le fait de tout avoir dans un seul flacon, c'est juste un confort fou.",
             "show_verified_badge_1": true,
-            "verified_badge_text_1": "Avis vérifié",
-            "enable_testimonial_2": true,
+            "customer_photo_2": "shopify://shop_images/image_client_1.jpg",
             "customer_name_2": "Thomas R.",
             "customer_age_2": "41 ans",
             "customer_city_2": "Paris",
             "star_rating_2": 5,
-            "objection_label_2": "Objection traitée : étanchéité",
-            "objection_label_color_2": "#5A6B5D",
-            "review_text_2": "<p>Je voyage 2 fois par mois pour le boulot. Avant, ma trousse était une zone de guerre — un flacon de gel douche m'avait foutu en l'air une chemise blanche. Là, six mois d'utilisation, zéro fuite. La pompe se verrouille, le double joint tient. Et tout mon nécessaire fait la taille d'une tasse, je le glisse dans mon sac à dos.</p>",
+            "show_objection_badge_2": true,
+            "objection_text_2": "Objection traitée : étanchéité",
+            "review_text_2": "Je voyage 2 fois par mois pour le boulot. Avant, ma trousse était une zone de guerre. Six mois d'utilisation, zéro fuite. La pompe se verrouille, le double joint tient parfaitement.",
             "show_verified_badge_2": true,
-            "verified_badge_text_2": "Avis vérifié",
-            "enable_testimonial_3": true,
+            "customer_photo_3": "shopify://shop_images/image_client_3.jpg",
             "customer_name_3": "Sophie M.",
             "customer_age_3": "29 ans",
             "customer_city_3": "Bordeaux",
             "star_rating_3": 5,
-            "objection_label_3": "Objection traitée : qualité / durabilité",
-            "objection_label_color_3": "#5A6B5D",
-            "review_text_3": "<p>J'avais peur que ce soit du bas de gamme qui se casse en 3 voyages. Au final, c'est solide, la coque ne bouge pas, les flacons internes se démontent pour le nettoyage. Et je peux enfin emmener MES produits — je ne fais plus confiance au gel douche des hôtels depuis longtemps. Franchement, le voyage devient beaucoup plus facile.</p>",
-            "show_verified_badge_3": true,
-            "verified_badge_text_3": "Avis vérifié"
+            "show_objection_badge_3": true,
+            "objection_text_3": "Objection traitée : qualité",
+            "review_text_3": "J'avais peur que ce soit du bas de gamme. Au final, c'est solide, les flacons internes se démontent pour le nettoyage. Et je peux enfin emmener MES produits, fini les soins d'hôtel douteux.",
+            "show_verified_badge_3": true
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_06571b5_86fH9d"
+        "ai_gen_block_049ba7e_mwrDGr"
       ],
       "settings": {}
     },
@@ -608,6 +602,9 @@
     "video_XJe6Rr",
     "rich_text_ppnHyf",
     "1780182895f878666b",
+    "17801855621b1488ff",
+    "1780185967c1c00274",
+    "1780186698dd0a27aa",
     "testimonials_k4agTX",
     "image_with_text_overlay_YqwzMC",
     "featured_product_4hjB8c",

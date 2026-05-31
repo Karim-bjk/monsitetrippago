@@ -1,0 +1,187 @@
+{%- comment -%}
+  Section : Avis clients trippago
+  Rangée horizontale unique — défilement / swipe vers la droite (6 avis pré-remplis)
+{%- endcomment -%}
+
+<style>
+  .trippago-reviews-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.top_padding }}px;
+    padding-bottom: {{ section.settings.bottom_padding }}px;
+  }
+  .trippago-reviews-{{ section.id }} .tr-heading {
+    text-align: center;
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size }}px;
+    margin: 0 0 40px;
+  }
+  .trippago-reviews-{{ section.id }} .tr-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4px 20px 8px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .trippago-reviews-{{ section.id }} .tr-track::-webkit-scrollbar { display: none; }
+  .trippago-reviews-{{ section.id }} .tr-card {
+    flex: 0 0 calc((100% - 48px) / 3);
+    scroll-snap-align: start;
+    background-color: {{ section.settings.card_bg }};
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .trippago-reviews-{{ section.id }} .tr-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  }
+  .trippago-reviews-{{ section.id }} .tr-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+    display: block;
+  }
+  .trippago-reviews-{{ section.id }} .tr-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #ECECE6;
+    border-radius: 16px 16px 0 0;
+  }
+  .trippago-reviews-{{ section.id }} .tr-content { padding: 24px; }
+  .trippago-reviews-{{ section.id }} .tr-stars {
+    display: flex;
+    gap: 2px;
+    color: {{ section.settings.star_color }};
+    font-size: 18px;
+    line-height: 1;
+  }
+  .trippago-reviews-{{ section.id }} .tr-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: {{ section.settings.heading_color }};
+    margin-top: 12px;
+  }
+  .trippago-reviews-{{ section.id }} .tr-meta {
+    font-size: 14px;
+    color: #6B6B6B;
+    margin-top: 2px;
+  }
+  .trippago-reviews-{{ section.id }} .tr-badge {
+    display: inline-block;
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 12px 0;
+  }
+  .trippago-reviews-{{ section.id }} .tr-text {
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #2C2C2C;
+    margin: 0;
+  }
+  .trippago-reviews-{{ section.id }} .tr-verified {
+    font-size: 13px;
+    color: #00B67A;
+    margin-top: 12px;
+  }
+  @media (max-width: 749px) {
+    .trippago-reviews-{{ section.id }} .tr-track { gap: 16px; padding-right: 20px; }
+    .trippago-reviews-{{ section.id }} .tr-card { flex: 0 0 85%; }
+  }
+</style>
+
+<section class="trippago-reviews-{{ section.id }}">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="tr-heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+  <div class="tr-track">
+    {%- for block in section.blocks -%}
+      <article class="tr-card" {{ block.shopify_attributes }}>
+        {%- if block.settings.customer_photo != blank -%}
+          <img class="tr-photo"
+               src="{{ block.settings.customer_photo | image_url: width: 600 }}"
+               alt="{{ block.settings.customer_name | escape }}"
+               loading="lazy" width="600" height="600">
+        {%- else -%}
+          <div class="tr-photo-placeholder"></div>
+        {%- endif -%}
+        <div class="tr-content">
+          <div class="tr-stars" aria-label="{{ block.settings.star_rating }} / 5">
+            {%- for i in (1..block.settings.star_rating) -%}★{%- endfor -%}
+          </div>
+          <div class="tr-name">{{ block.settings.customer_name }}</div>
+          <div class="tr-meta">{{ block.settings.customer_age }} · {{ block.settings.customer_city }}</div>
+          {%- if block.settings.show_objection_badge and block.settings.objection_text != blank -%}
+            <span class="tr-badge">{{ block.settings.objection_text }}</span>
+          {%- endif -%}
+          <p class="tr-text">« {{ block.settings.review_text }} »</p>
+          {%- if block.settings.show_verified_badge -%}
+            <div class="tr-verified">✓ Avis vérifié</div>
+          {%- endif -%}
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Avis clients trippago",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Ils ont adopté Trippago" },
+    { "type": "color", "id": "heading_color", "label": "Couleur du titre", "default": "#1F3D2C" },
+    { "type": "range", "id": "heading_size", "label": "Taille du titre", "min": 24, "max": 48, "step": 1, "unit": "px", "default": 36 },
+    { "type": "color", "id": "bg_color", "label": "Couleur de fond", "default": "#FAFAF7" },
+    { "type": "color", "id": "card_bg", "label": "Fond des cartes", "default": "#FFFFFF" },
+    { "type": "color", "id": "star_color", "label": "Couleur des étoiles", "default": "#00B67A" },
+    { "type": "color", "id": "accent_color", "label": "Couleur des badges", "default": "#A8D470" },
+    { "type": "range", "id": "top_padding", "label": "Marge haute", "min": 40, "max": 120, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "bottom_padding", "label": "Marge basse", "min": 40, "max": 120, "step": 4, "unit": "px", "default": 80 }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Avis client",
+      "settings": [
+        { "type": "image_picker", "id": "customer_photo", "label": "Photo" },
+        { "type": "text", "id": "customer_name", "label": "Nom" },
+        { "type": "text", "id": "customer_age", "label": "Âge" },
+        { "type": "text", "id": "customer_city", "label": "Ville" },
+        { "type": "range", "id": "star_rating", "label": "Note", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "checkbox", "id": "show_objection_badge", "label": "Afficher le badge objection", "default": true },
+        { "type": "text", "id": "objection_text", "label": "Texte objection" },
+        { "type": "textarea", "id": "review_text", "label": "Avis" },
+        { "type": "checkbox", "id": "show_verified_badge", "label": "Afficher « Avis vérifié »", "default": true }
+      ]
+    }
+  ],
+  "max_blocks": 9,
+  "presets": [
+    {
+      "name": "Avis clients trippago",
+      "blocks": [
+        { "type": "testimonial", "settings": { "customer_name": "Camille D.", "customer_age": "32 ans", "customer_city": "Lyon", "star_rating": 5, "objection_text": "Objection traitée : contenance", "review_text": "J'étais sceptique sur la contenance — 30 ml ça paraît rien. Mais en réalité, ça me fait largement une semaine de voyage. Et le fait de tout avoir dans un seul flacon, c'est juste un confort fou." } },
+        { "type": "testimonial", "settings": { "customer_name": "Thomas R.", "customer_age": "41 ans", "customer_city": "Paris", "star_rating": 5, "objection_text": "Objection traitée : étanchéité", "review_text": "Je voyage 2 fois par mois pour le boulot. Avant, ma trousse était une zone de guerre. Six mois d'utilisation, zéro fuite. La pompe se verrouille, le double joint tient parfaitement." } },
+        { "type": "testimonial", "settings": { "customer_name": "Sophie M.", "customer_age": "29 ans", "customer_city": "Bordeaux", "star_rating": 5, "objection_text": "Objection traitée : qualité", "review_text": "J'avais peur que ce soit du bas de gamme. Au final, c'est solide, les flacons internes se démontent pour le nettoyage. Et je peux enfin emmener MES produits, fini les soins d'hôtel douteux." } },
+        { "type": "testimonial", "settings": { "customer_name": "Yanis B.", "customer_age": "35 ans", "customer_city": "Marseille", "star_rating": 5, "objection_text": "Objection traitée : format cabine", "review_text": "J'avais peur de galérer aux contrôles à l'aéroport. Avec 30 ml par flacon, je passe la sécurité sans rien sortir de ma valise cabine. Fini les produits confisqués — exactement ce qu'il me fallait pour mes allers-retours." } },
+        { "type": "testimonial", "settings": { "customer_name": "Léa F.", "customer_age": "27 ans", "customer_city": "Toulouse", "star_rating": 5, "objection_text": "Objection traitée : remplissage", "review_text": "Je pensais que remplir ces petits flacons serait une corvée pleine de débordements. En fait, l'ouverture large fait que je remplis tout en dix secondes sans en mettre partout. Même mon gel douche un peu épais passe sans souci." } },
+        { "type": "testimonial", "settings": { "customer_name": "Nicolas P.", "customer_age": "38 ans", "customer_city": "Nantes", "star_rating": 5, "objection_text": "Objection traitée : gain de place", "review_text": "Sceptique au départ : un seul truc pour remplacer mes 4 flacons ? Au final il prend la place d'un déodorant dans mon sac, et j'ai shampoing, après-shampoing, gel douche et crème toujours sur moi. Mon sac de toilette a maigri de moitié." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

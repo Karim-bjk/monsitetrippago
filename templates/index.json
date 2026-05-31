@@ -329,6 +329,8 @@
         "subheading": "",
         "title": "Avant / Après",
         "content": "<p><strong>Le jour où ta valise a arrêté de sentir le shampoing renversé.</strong></p>",
+        "before_image": "shopify://shop_images/Image_Avant_site_internet.png",
+        "after_image": "shopify://shop_images/image_Apres_site_internet.png",
         "expand_image": false,
         "text_position": "center",
         "before_after_text_position": "top",

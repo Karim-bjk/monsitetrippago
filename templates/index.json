@@ -175,17 +175,11 @@
     "rich_text_ppnHyf": {
       "type": "rich-text",
       "blocks": {
-        "subheading_XED8dL": {
-          "type": "subheading",
-          "settings": {
-            "text": "Subheading"
-          }
-        },
         "heading_hLfX3g": {
           "type": "heading",
           "settings": {
-            "text": "Heading",
-            "heading_tag": "h1",
+            "text": "Ils l'ont essayé, ils ne voyagent plus sans.",
+            "heading_tag": "h2",
             "text_color": "",
             "gradient": ""
           }
@@ -198,7 +192,6 @@
         }
       },
       "block_order": [
-        "subheading_XED8dL",
         "heading_hLfX3g",
         "richtext_XXyMaf"
       ],

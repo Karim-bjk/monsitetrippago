@@ -312,12 +312,12 @@
       "settings": {
         "heading": "",
         "heading_color": "#1F3D2C",
-        "heading_size": 36,
+        "heading_size": 24,
         "bg_color": "#ffffff",
         "card_bg": "#FFFFFF",
         "star_color": "#00B67A",
         "accent_color": "#A8D470",
-        "top_padding": 80,
+        "top_padding": 40,
         "bottom_padding": 80
       }
     },

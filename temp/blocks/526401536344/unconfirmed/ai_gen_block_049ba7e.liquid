@@ -1,6 +1,777 @@
+{% doc %}
+  @prompt
+    Create a Shopify section called "Avis clients trippago" with this EXACT layout reference: PopCard testimonials section (3 large image-dominant cards displayed side by side in a single horizontal row).
+    
+    ═══════════════════════════════════════
+    CRITICAL LAYOUT REQUIREMENTS
+    ═══════════════════════════════════════
+    
+    DESKTOP (screen width > 749px):
+    - Display 3 testimonial cards SIDE BY SIDE in ONE horizontal row
+    - Use CSS Grid: grid-template-columns: repeat(3, 1fr)
+    - Gap between cards: 24px
+    - Section max-width: 1200px, centered with margin: 0 auto
+    - Section padding: 80px 20px
+    - Cards must have EQUAL WIDTH (33% each minus gaps)
+    - DO NOT stack cards vertically on desktop
+    - DO NOT make any card full-width
+    
+    MOBILE (screen width < 750px):
+    - Horizontal swipe carousel showing one card at a time
+    - Each card width: 85% of viewport
+    - Show 10% of next card on the right (peek effect)
+    - Smooth scroll with snap points
+    - Gap between cards: 16px
+    
+    ═══════════════════════════════════════
+    CARD STRUCTURE (each testimonial card)
+    ═══════════════════════════════════════
+    
+    VERTICAL LAYOUT inside each card:
+    
+    1. TOP - Photo area:
+       - Aspect ratio: 1:1 (square)
+       - Width: 100% of card
+       - Height: auto (maintains square ratio)
+       - object-fit: cover
+       - Border-radius: 16px on top corners only
+       
+    2. BOTTOM - Content area (padding: 24px):
+       - 5 stars row (color: #00B67A, size: 18px, gap: 2px)
+       - Customer name (bold, 18px, color: #1F3D2C, margin-top: 12px)
+       - Age + city (regular, 14px, color: #6B6B6B, format: "32 ans · Lyon")
+       - Optional objection label badge (background: #A8D470, color: white, padding: 6px 12px, border-radius: 20px, font-size: 13px, margin: 12px 0)
+       - Review text (italic, 15px, line-height: 1.6, color: #2C2C2C, with French quote marks « »)
+    
+    CARD STYLING:
+    - Background color: #FFFFFF
+    - Border-radius: 16px
+    - Box-shadow: 0 4px 20px rgba(0,0,0,0.08)
+    - Overflow: hidden
+    - Display: flex, flex-direction: column
+    
+    ═══════════════════════════════════════
+    SECTION-LEVEL SETTINGS (theme editor)
+    ═══════════════════════════════════════
+    
+    - Section heading (text input, default: "Ils ont adopté Trippago")
+    - Heading color (color picker, default: #1F3D2C)
+    - Heading size (range: 24-48px, default: 36px)
+    - Background color (color picker, default: #FAFAF7)
+    - Card background color (color picker, default: #FFFFFF)
+    - Star color (color picker, default: #00B67A)
+    - Accent color for badges (color picker, default: #A8D470)
+    - Section top padding (range: 40-120px, default: 80px)
+    - Section bottom padding (range: 40-120px, default: 80px)
+    
+    ═══════════════════════════════════════
+    PER-BLOCK SETTINGS (each testimonial)
+    ═══════════════════════════════════════
+    
+    Block type: "testimonial"
+    Max blocks: 9
+    Default blocks: 3 (pre-filled, see below)
+    
+    Block fields:
+    - customer_photo (image_picker)
+    - customer_name (text)
+    - customer_age (text)
+    - customer_city (text)
+    - star_rating (range, min: 1, max: 5, step: 1, default: 5)
+    - show_objection_badge (checkbox, default: true)
+    - objection_text (text)
+    - review_text (textarea)
+    - show_verified_badge (checkbox, default: true)
+    
+    ═══════════════════════════════════════
+    DEFAULT BLOCKS (pre-filled content)
+    ═══════════════════════════════════════
+    
+    BLOCK 1:
+    - customer_name: "Camille D."
+    - customer_age: "32 ans"
+    - customer_city: "Lyon"
+    - star_rating: 5
+    - objection_text: "Objection traitée : contenance"
+    - review_text: "J'étais sceptique sur la contenance — 30 ml ça paraît rien. Mais en réalité, ça me fait largement une semaine de voyage. Et le fait de tout avoir dans un seul flacon, c'est juste un confort fou."
+    
+    BLOCK 2:
+    - customer_name: "Thomas R."
+    - customer_age: "41 ans"
+    - customer_city: "Paris"
+    - star_rating: 5
+    - objection_text: "Objection traitée : étanchéité"
+    - review_text: "Je voyage 2 fois par mois pour le boulot. Avant, ma trousse était une zone de guerre. Six mois d'utilisation, zéro fuite. La pompe se verrouille, le double joint tient parfaitement."
+    
+    BLOCK 3:
+    - customer_name: "Sophie M."
+    - customer_age: "29 ans"
+    - customer_city: "Bordeaux"
+    - star_rating: 5
+    - objection_text: "Objection traitée : qualité"
+    - review_text: "J'avais peur que ce soit du bas de gamme. Au final, c'est solide, les flacons internes se démontent pour le nettoyage. Et je peux enfin emmener MES produits, fini les soins d'hôtel douteux."
+    
+    ═══════════════════════════════════════
+    ACCESSIBILITY & POLISH
+    ═══════════════════════════════════════
+    
+    - Add alt text to images using customer_name
+    - Use semantic HTML (article tags for each testimonial)
+    - Smooth hover effect on cards (slight scale + shadow increase)
+    - Mobile carousel uses scroll-snap-type: x mandatory
+    - Hide scrollbar on mobile carousel but keep swipe functional
+    
+    CRITICAL FINAL CHECK: The desktop layout MUST show 3 cards in ONE ROW side by side, NOT stacked vertically. Reference: PopCard Shopify testimonials section.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-testimonials-section-{{ ai_gen_id }} {
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_top_padding }}px 20px {{ block.settings.section_bottom_padding }}px;
+    width: 100%;
+    display: block;
+  }
+
+  .ai-testimonials-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-testimonials-heading-{{ ai_gen_id }} {
+    text-align: center;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    margin: 0 0 48px;
+    font-weight: 600;
+  }
+
+  .ai-testimonials-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .ai-testimonial-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background_color }};
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ai-testimonial-card-{{ ai_gen_id }}:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .ai-testimonial-photo-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  .ai-testimonial-photo-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-testimonial-photo-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-testimonial-photo-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-testimonial-content-{{ ai_gen_id }} {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ai-testimonial-stars-{{ ai_gen_id }} {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 12px;
+  }
+
+  .ai-testimonial-star-{{ ai_gen_id }} {
+    width: 18px;
+    height: 18px;
+    color: {{ block.settings.star_color }};
+  }
+
+  .ai-testimonial-name-{{ ai_gen_id }} {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F3D2C;
+    margin: 0 0 4px;
+  }
+
+  .ai-testimonial-location-{{ ai_gen_id }} {
+    font-size: 14px;
+    color: #6B6B6B;
+    margin: 0 0 12px;
+  }
+
+  .ai-testimonial-badge-{{ ai_gen_id }} {
+    display: inline-block;
+    background-color: {{ block.settings.accent_color }};
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 0 0 12px;
+    align-self: flex-start;
+  }
+
+  .ai-testimonial-review-{{ ai_gen_id }} {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #2C2C2C;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .ai-testimonial-verified-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #6B6B6B;
+    margin-top: 12px;
+  }
+
+  .ai-testimonial-verified-icon-{{ ai_gen_id }} {
+    width: 14px;
+    height: 14px;
+    color: {{ block.settings.star_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-testimonials-heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.7);
+      margin-bottom: 32px;
+    }
+
+    .ai-testimonials-grid-{{ ai_gen_id }} {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .ai-testimonials-grid-{{ ai_gen_id }}::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ai-testimonial-card-{{ ai_gen_id }} {
+      flex: 0 0 85%;
+      scroll-snap-align: start;
+    }
+
+    .ai-testimonial-card-{{ ai_gen_id }}:last-child {
+      margin-right: 10%;
+    }
+  }
+{% endstyle %}
+
+<ai-testimonials-{{ ai_gen_id }} class="ai-testimonials-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-testimonials-container-{{ ai_gen_id }}">
+    {% if block.settings.section_heading != blank %}
+      <h2 class="ai-testimonials-heading-{{ ai_gen_id }}">{{ block.settings.section_heading }}</h2>
+    {% endif %}
+
+    <div class="ai-testimonials-grid-{{ ai_gen_id }}">
+      <article class="ai-testimonial-card-{{ ai_gen_id }}">
+        <div class="ai-testimonial-photo-{{ ai_gen_id }}">
+          {% if block.settings.customer_photo_1 %}
+            <img
+              src="{{ block.settings.customer_photo_1 | image_url: width: 600 }}"
+              alt="{{ block.settings.customer_name_1 | escape }}"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+          {% else %}
+            <div class="ai-testimonial-photo-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-testimonial-content-{{ ai_gen_id }}">
+          <div class="ai-testimonial-stars-{{ ai_gen_id }}">
+            {% for i in (1..block.settings.star_rating_1) %}
+              <svg class="ai-testimonial-star-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            {% endfor %}
+          </div>
+
+          <h3 class="ai-testimonial-name-{{ ai_gen_id }}">{{ block.settings.customer_name_1 }}</h3>
+
+          {% if block.settings.customer_age_1 != blank or block.settings.customer_city_1 != blank %}
+            <p class="ai-testimonial-location-{{ ai_gen_id }}">
+              {% if block.settings.customer_age_1 != blank %}{{ block.settings.customer_age_1 }}{% endif %}{% if block.settings.customer_age_1 != blank and block.settings.customer_city_1 != blank %} · {% endif %}{% if block.settings.customer_city_1 != blank %}{{ block.settings.customer_city_1 }}{% endif %}
+            </p>
+          {% endif %}
+
+          {% if block.settings.show_objection_badge_1 and block.settings.objection_text_1 != blank %}
+            <span class="ai-testimonial-badge-{{ ai_gen_id }}">{{ block.settings.objection_text_1 }}</span>
+          {% endif %}
+
+          {% if block.settings.review_text_1 != blank %}
+            <p class="ai-testimonial-review-{{ ai_gen_id }}">« {{ block.settings.review_text_1 }} »</p>
+          {% endif %}
+
+          {% if block.settings.show_verified_badge_1 %}
+            <div class="ai-testimonial-verified-{{ ai_gen_id }}">
+              <svg class="ai-testimonial-verified-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+              </svg>
+              <span>Avis vérifié</span>
+            </div>
+          {% endif %}
+        </div>
+      </article>
+
+      <article class="ai-testimonial-card-{{ ai_gen_id }}">
+        <div class="ai-testimonial-photo-{{ ai_gen_id }}">
+          {% if block.settings.customer_photo_2 %}
+            <img
+              src="{{ block.settings.customer_photo_2 | image_url: width: 600 }}"
+              alt="{{ block.settings.customer_name_2 | escape }}"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+          {% else %}
+            <div class="ai-testimonial-photo-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-testimonial-content-{{ ai_gen_id }}">
+          <div class="ai-testimonial-stars-{{ ai_gen_id }}">
+            {% for i in (1..block.settings.star_rating_2) %}
+              <svg class="ai-testimonial-star-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            {% endfor %}
+          </div>
+
+          <h3 class="ai-testimonial-name-{{ ai_gen_id }}">{{ block.settings.customer_name_2 }}</h3>
+
+          {% if block.settings.customer_age_2 != blank or block.settings.customer_city_2 != blank %}
+            <p class="ai-testimonial-location-{{ ai_gen_id }}">
+              {% if block.settings.customer_age_2 != blank %}{{ block.settings.customer_age_2 }}{% endif %}{% if block.settings.customer_age_2 != blank and block.settings.customer_city_2 != blank %} · {% endif %}{% if block.settings.customer_city_2 != blank %}{{ block.settings.customer_city_2 }}{% endif %}
+            </p>
+          {% endif %}
+
+          {% if block.settings.show_objection_badge_2 and block.settings.objection_text_2 != blank %}
+            <span class="ai-testimonial-badge-{{ ai_gen_id }}">{{ block.settings.objection_text_2 }}</span>
+          {% endif %}
+
+          {% if block.settings.review_text_2 != blank %}
+            <p class="ai-testimonial-review-{{ ai_gen_id }}">« {{ block.settings.review_text_2 }} »</p>
+          {% endif %}
+
+          {% if block.settings.show_verified_badge_2 %}
+            <div class="ai-testimonial-verified-{{ ai_gen_id }}">
+              <svg class="ai-testimonial-verified-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+              </svg>
+              <span>Avis vérifié</span>
+            </div>
+          {% endif %}
+        </div>
+      </article>
+
+      <article class="ai-testimonial-card-{{ ai_gen_id }}">
+        <div class="ai-testimonial-photo-{{ ai_gen_id }}">
+          {% if block.settings.customer_photo_3 %}
+            <img
+              src="{{ block.settings.customer_photo_3 | image_url: width: 600 }}"
+              alt="{{ block.settings.customer_name_3 | escape }}"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+          {% else %}
+            <div class="ai-testimonial-photo-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-testimonial-content-{{ ai_gen_id }}">
+          <div class="ai-testimonial-stars-{{ ai_gen_id }}">
+            {% for i in (1..block.settings.star_rating_3) %}
+              <svg class="ai-testimonial-star-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            {% endfor %}
+          </div>
+
+          <h3 class="ai-testimonial-name-{{ ai_gen_id }}">{{ block.settings.customer_name_3 }}</h3>
+
+          {% if block.settings.customer_age_3 != blank or block.settings.customer_city_3 != blank %}
+            <p class="ai-testimonial-location-{{ ai_gen_id }}">
+              {% if block.settings.customer_age_3 != blank %}{{ block.settings.customer_age_3 }}{% endif %}{% if block.settings.customer_age_3 != blank and block.settings.customer_city_3 != blank %} · {% endif %}{% if block.settings.customer_city_3 != blank %}{{ block.settings.customer_city_3 }}{% endif %}
+            </p>
+          {% endif %}
+
+          {% if block.settings.show_objection_badge_3 and block.settings.objection_text_3 != blank %}
+            <span class="ai-testimonial-badge-{{ ai_gen_id }}">{{ block.settings.objection_text_3 }}</span>
+          {% endif %}
+
+          {% if block.settings.review_text_3 != blank %}
+            <p class="ai-testimonial-review-{{ ai_gen_id }}">« {{ block.settings.review_text_3 }} »</p>
+          {% endif %}
+
+          {% if block.settings.show_verified_badge_3 %}
+            <div class="ai-testimonial-verified-{{ ai_gen_id }}">
+              <svg class="ai-testimonial-verified-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+              </svg>
+              <span>Avis vérifié</span>
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    </div>
+  </div>
+</ai-testimonials-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AiTestimonials{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setupMobileScroll();
+      }
+
+      setupMobileScroll() {
+        const grid = this.querySelector('.ai-testimonials-grid-{{ ai_gen_id }}');
+        if (!grid) return;
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        grid.addEventListener('mousedown', (e) => {
+          if (window.innerWidth > 749) return;
+          isDown = true;
+          startX = e.pageX - grid.offsetLeft;
+          scrollLeft = grid.scrollLeft;
+        });
+
+        grid.addEventListener('mouseleave', () => {
+          isDown = false;
+        });
+
+        grid.addEventListener('mouseup', () => {
+          isDown = false;
+        });
+
+        grid.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          if (window.innerWidth > 749) return;
+          e.preventDefault();
+          const x = e.pageX - grid.offsetLeft;
+          const walk = (x - startX) * 2;
+          grid.scrollLeft = scrollLeft - walk;
+        });
+      }
+    }
+
+    customElements.define('ai-testimonials-{{ ai_gen_id }}', AiTestimonials{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Avis clients trippago",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Ils ont adopté Trippago"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1F3D2C"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FAFAF7"
+    },
+    {
+      "type": "range",
+      "id": "section_top_padding",
+      "label": "Top padding",
+      "min": 40,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_bottom_padding",
+      "label": "Bottom padding",
+      "min": 40,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#00B67A"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Badge color",
+      "default": "#A8D470"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "customer_photo_1",
+      "label": "Photo"
+    },
+    {
+      "type": "text",
+      "id": "customer_name_1",
+      "label": "Name",
+      "default": "Camille D."
+    },
+    {
+      "type": "text",
+      "id": "customer_age_1",
+      "label": "Age",
+      "default": "32 ans"
+    },
+    {
+      "type": "text",
+      "id": "customer_city_1",
+      "label": "City",
+      "default": "Lyon"
+    },
+    {
+      "type": "range",
+      "id": "star_rating_1",
+      "label": "Star rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_objection_badge_1",
+      "label": "Show objection badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "objection_text_1",
+      "label": "Objection text",
+      "default": "Objection traitée : contenance"
+    },
+    {
+      "type": "textarea",
+      "id": "review_text_1",
+      "label": "Review text",
+      "default": "J'étais sceptique sur la contenance — 30 ml ça paraît rien. Mais en réalité, ça me fait largement une semaine de voyage. Et le fait de tout avoir dans un seul flacon, c'est juste un confort fou."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_verified_badge_1",
+      "label": "Show verified badge",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "customer_photo_2",
+      "label": "Photo"
+    },
+    {
+      "type": "text",
+      "id": "customer_name_2",
+      "label": "Name",
+      "default": "Thomas R."
+    },
+    {
+      "type": "text",
+      "id": "customer_age_2",
+      "label": "Age",
+      "default": "41 ans"
+    },
+    {
+      "type": "text",
+      "id": "customer_city_2",
+      "label": "City",
+      "default": "Paris"
+    },
+    {
+      "type": "range",
+      "id": "star_rating_2",
+      "label": "Star rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_objection_badge_2",
+      "label": "Show objection badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "objection_text_2",
+      "label": "Objection text",
+      "default": "Objection traitée : étanchéité"
+    },
+    {
+      "type": "textarea",
+      "id": "review_text_2",
+      "label": "Review text",
+      "default": "Je voyage 2 fois par mois pour le boulot. Avant, ma trousse était une zone de guerre. Six mois d'utilisation, zéro fuite. La pompe se verrouille, le double joint tient parfaitement."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_verified_badge_2",
+      "label": "Show verified badge",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "customer_photo_3",
+      "label": "Photo"
+    },
+    {
+      "type": "text",
+      "id": "customer_name_3",
+      "label": "Name",
+      "default": "Sophie M."
+    },
+    {
+      "type": "text",
+      "id": "customer_age_3",
+      "label": "Age",
+      "default": "29 ans"
+    },
+    {
+      "type": "text",
+      "id": "customer_city_3",
+      "label": "City",
+      "default": "Bordeaux"
+    },
+    {
+      "type": "range",
+      "id": "star_rating_3",
+      "label": "Star rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_objection_badge_3",
+      "label": "Show objection badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "objection_text_3",
+      "label": "Objection text",
+      "default": "Objection traitée : qualité"
+    },
+    {
+      "type": "textarea",
+      "id": "review_text_3",
+      "label": "Review text",
+      "default": "J'avais peur que ce soit du bas de gamme. Au final, c'est solide, les flacons internes se démontent pour le nettoyage. Et je peux enfin emmener MES produits, fini les soins d'hôtel douteux."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_verified_badge_3",
+      "label": "Show verified badge",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Avis clients trippago"
+    }
+  ]
+}
 {% endschema %}

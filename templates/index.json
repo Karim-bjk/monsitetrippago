@@ -311,13 +311,13 @@
       "name": "Avis clients trippago",
       "settings": {
         "heading": "",
-        "heading_color": "#1F3D2C",
+        "heading_color": "#1f3d2c",
         "heading_size": 24,
         "bg_color": "#ffffff",
-        "card_bg": "#FFFFFF",
-        "star_color": "#00B67A",
-        "accent_color": "#A8D470",
-        "top_padding": 40,
+        "card_bg": "#ffffff",
+        "star_color": "#00b67a",
+        "accent_color": "#a8d470",
+        "top_padding": 0,
         "bottom_padding": 80
       }
     },

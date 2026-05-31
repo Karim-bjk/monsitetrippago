@@ -175,6 +175,12 @@
     "rich_text_ppnHyf": {
       "type": "rich-text",
       "blocks": {
+        "subheading_XED8dL": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
         "heading_hLfX3g": {
           "type": "heading",
           "settings": {
@@ -192,6 +198,7 @@
         }
       },
       "block_order": [
+        "subheading_XED8dL",
         "heading_hLfX3g",
         "richtext_XXyMaf"
       ],

@@ -634,9 +634,9 @@
       "name": "Contact form",
       "settings": {
         "full_width": true,
-        "subheading": "Service client du lundi au vendredi · on vous répond sous 24 h",
-        "title": "Vous avez une question ?",
-        "content": "<p>Écrivez-nous via le formulaire ci-dessous, on vous répond au plus vite.</p>",
+        "subheading": "Service client du lundi au vendredi · on te répond sous 24 h",
+        "title": "Tu as une question ?",
+        "content": "<p>Écris-nous via le formulaire ci-dessous, on te répond au plus vite.</p>",
         "text_position": "center",
         "contact_form_size": "large",
         "background": "",

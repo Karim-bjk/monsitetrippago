@@ -476,6 +476,15 @@
     "images_with_text_scrolling_YKd73b": {
       "type": "images-with-text-scrolling",
       "blocks": {
+        "item_A33MTa": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Heading",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        },
         "item_JYin6D": {
           "type": "item",
           "settings": {
@@ -505,6 +514,7 @@
         }
       },
       "block_order": [
+        "item_A33MTa",
         "item_JYin6D",
         "item_RADMiE",
         "item_CEcQf8"

@@ -400,12 +400,6 @@
             "collapse_content": false
           }
         },
-        "liquid_LTPbqp": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<style>\n  .stock-badge-wrap {\n    display: flex;\n    justify-content: center;\n    margin: 10px 0;\n  }\n  .stock-badge {\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    font-family: Arial, sans-serif;\n    font-size: 15px;            /* taille conservée */\n    font-weight: 700;           /* gras = plus d'urgence */\n    color: #c81e1e;             /* texte rouge */\n    background-color: #fff0f0;  /* fond rouge très clair */\n    border: 1.5px solid #e02424;/* cadre rouge */\n    border-radius: 8px;\n    padding: 8p"
-          }
-        },
         "buy_buttons_NTqj8T": {
           "type": "buy_buttons",
           "settings": {
@@ -429,7 +423,6 @@
         "rapi_rapi_bundle_UppBTc",
         "separator_8Gbhcz",
         "description_gkULt4",
-        "liquid_LTPbqp",
         "buy_buttons_NTqj8T",
         "pickup_availability_4d3V6D"
       ],

@@ -24,7 +24,7 @@
             "icon_background": "",
             "icon_color": "",
             "title": "Livraison offerte",
-            "content": "<p>Expédition suivie, partout en France.</p>"
+            "content": ""
           }
         },
         "customer-support": {
@@ -37,7 +37,7 @@
             "icon_background": "",
             "icon_color": "",
             "title": "Service client en français",
-            "content": "<p>Une question ? Une réponse rapide, par de vraies personnes.</p>"
+            "content": ""
           }
         },
         "discount": {
@@ -49,8 +49,8 @@
             "icon_background_type": "none",
             "icon_background": "",
             "icon_color": "",
-            "title": "Satisfait ou remboursé",
-            "content": "<p>60 jours pour tester. Anti-fuite garanti ou remboursé.</p>"
+            "title": "Satisfait ou remboursé 60 jours",
+            "content": ""
           }
         },
         "payment": {
@@ -63,7 +63,7 @@
             "icon_background": "",
             "icon_color": "",
             "title": "Paiement 100 % sécurisé",
-            "content": "<p>Visa, Mastercard, PayPal, Google Pay & Apple Pay, AMEX, Shop</p>"
+            "content": ""
           }
         }
       },

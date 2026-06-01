@@ -403,7 +403,7 @@
         "liquid_LTPbqp": {
           "type": "liquid",
           "settings": {
-            "liquid": "<style>\n  .stock-badge {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 8px;\n    font-family: Arial, sans-serif;\n    font-size: 15px;\n    color: #333;\n    margin-top: 10px;\n  }\n  .stock-badge .dot {\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background-color: #e02424; /* point rouge */\n    display: inline-block;\n  }\n</style>\n\n<div class=\"stock-badge\">\n  <span class=\"dot\"></span>\n  <span>Stock limité, commandez maintenant !</span>\n</div>"
+            "liquid": "<style>\n  .stock-badge-wrap {\n    display: flex;\n    justify-content: center;\n    margin: 10px 0;\n  }\n  .stock-badge {\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    font-family: Arial, sans-serif;\n    font-size: 15px;            /* taille conservée */\n    font-weight: 700;           /* gras = plus d'urgence */\n    color: #c81e1e;             /* texte rouge */\n    background-color: #fff0f0;  /* fond rouge très clair */\n    border: 1.5px solid #e02424;/* cadre rouge */\n    border-radius: 8px;\n    padding: 8p"
           }
         },
         "buy_buttons_NTqj8T": {

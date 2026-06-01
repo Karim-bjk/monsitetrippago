@@ -399,7 +399,6 @@
         },
         "description_gkULt4": {
           "type": "description",
-          "disabled": true,
           "settings": {
             "icon": "none",
             "icon_width": 20,

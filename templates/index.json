@@ -365,12 +365,6 @@
     "featured_product_4hjB8c": {
       "type": "featured-product",
       "blocks": {
-        "liquid_LTPbqp": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<style>\n  .stock-badge {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 8px;\n    font-family: Arial, sans-serif;\n    font-size: 15px;\n    color: #333;\n    margin-top: 10px;\n  }\n  .stock-badge .dot {\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background-color: #e02424; /* point rouge */\n    display: inline-block;\n  }\n</style>\n\n<div class=\"stock-badge\">\n  <span class=\"dot\"></span>\n  <span>Stock limité, commandez maintenant !</span>\n</div>"
-          }
-        },
         "rating_VaVTQk": {
           "type": "rating",
           "settings": {
@@ -406,6 +400,12 @@
             "collapse_content": false
           }
         },
+        "liquid_LTPbqp": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n  .stock-badge {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 8px;\n    font-family: Arial, sans-serif;\n    font-size: 15px;\n    color: #333;\n    margin-top: 10px;\n  }\n  .stock-badge .dot {\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background-color: #e02424; /* point rouge */\n    display: inline-block;\n  }\n</style>\n\n<div class=\"stock-badge\">\n  <span class=\"dot\"></span>\n  <span>Stock limité, commandez maintenant !</span>\n</div>"
+          }
+        },
         "buy_buttons_NTqj8T": {
           "type": "buy_buttons",
           "settings": {
@@ -423,13 +423,13 @@
         }
       },
       "block_order": [
-        "liquid_LTPbqp",
         "rating_VaVTQk",
         "title_nNJVyx",
         "badges_UMPP7J",
         "rapi_rapi_bundle_UppBTc",
         "separator_8Gbhcz",
         "description_gkULt4",
+        "liquid_LTPbqp",
         "buy_buttons_NTqj8T",
         "pickup_availability_4d3V6D"
       ],

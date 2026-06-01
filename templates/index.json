@@ -499,19 +499,21 @@
         "item_RADMiE": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/etape_3_reinserer.png",
             "icon": "none",
             "icon_width": 48,
-            "title": "Heading 1",
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "title": "Réinsère le flacon",
+            "content": "<p>Replace les flacons dans la coque, bien alignés, et revisse la tête.</p>"
           }
         },
         "item_CEcQf8": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/etape_4_verrouiller.png",
             "icon": "none",
             "icon_width": 48,
-            "title": "Heading 2",
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "title": "Verrouille la base",
+            "content": "<p>Visse la base d'un quart de tour : tout se verrouille. Zéro fuite, même au fond de la valise ou en soute.</p>"
           }
         }
       },

@@ -428,12 +428,6 @@
             "product": "trippago-le-flacon-de-voyage-4-en-1"
           }
         },
-        "price_jzjExd": {
-          "type": "price",
-          "settings": {
-            "show_taxes_notice": false
-          }
-        },
         "separator_8Gbhcz": {
           "type": "separator",
           "settings": {}
@@ -446,21 +440,6 @@
             "icon_width": 20,
             "collapse_content": false
           }
-        },
-        "variant_picker_j7NFCN": {
-          "type": "variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "stack_blocks": true,
-            "selector_style": "block",
-            "swatch_selector_style": "swatch",
-            "variant_image_options": "",
-            "size_chart_page": ""
-          }
-        },
-        "quantity_selector_4bJ7Vb": {
-          "type": "quantity_selector",
-          "settings": {}
         },
         "buy_buttons_NTqj8T": {
           "type": "buy_buttons",
@@ -483,11 +462,8 @@
         "title_nNJVyx",
         "badges_UMPP7J",
         "rapi_rapi_bundle_UppBTc",
-        "price_jzjExd",
         "separator_8Gbhcz",
         "description_gkULt4",
-        "variant_picker_j7NFCN",
-        "quantity_selector_4bJ7Vb",
         "buy_buttons_NTqj8T",
         "pickup_availability_4d3V6D"
       ],

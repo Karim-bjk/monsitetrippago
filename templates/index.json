@@ -212,6 +212,31 @@
         "text_color": ""
       }
     },
+    "before_after_image_crHyXG": {
+      "type": "before-after-image",
+      "name": "Before/after image",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Avant / Après",
+        "content": "<p>Avant, 10 flacons qui fuient. Après, un seul qui change tout.</p>",
+        "before_image": "shopify://shop_images/Image_Avant_site_internet.png",
+        "after_image": "shopify://shop_images/image_Apres_site_internet.png",
+        "expand_image": false,
+        "text_position": "center",
+        "before_after_text_position": "top",
+        "before_text": "Avant",
+        "after_text": "Après",
+        "drag_initial_position": 50,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "before_text_color": "#ffffff",
+        "after_text_color": "#ffffff",
+        "drag_cursor_background": "#ffffff",
+        "drag_cursor_color": "#000000"
+      }
+    },
     "avis_clients_trippago_AbBCeG": {
       "type": "avis-clients-trippago",
       "blocks": {
@@ -319,31 +344,6 @@
         "accent_color": "#a8d470",
         "top_padding": 0,
         "bottom_padding": 40
-      }
-    },
-    "before_after_image_crHyXG": {
-      "type": "before-after-image",
-      "name": "Before/after image",
-      "settings": {
-        "full_width": true,
-        "subheading": "",
-        "title": "Avant / Après",
-        "content": "<p>Avant, 10 flacons qui fuient. Après, un seul qui change tout.</p>",
-        "before_image": "shopify://shop_images/Image_Avant_site_internet.png",
-        "after_image": "shopify://shop_images/image_Apres_site_internet.png",
-        "expand_image": false,
-        "text_position": "center",
-        "before_after_text_position": "top",
-        "before_text": "Avant",
-        "after_text": "Après",
-        "drag_initial_position": 50,
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "before_text_color": "#ffffff",
-        "after_text_color": "#ffffff",
-        "drag_cursor_background": "#ffffff",
-        "drag_cursor_color": "#000000"
       }
     },
     "1780182895f878666b": {
@@ -565,9 +565,9 @@
     "slideshow_LicYhB",
     "rich_text_q7gcjP",
     "video_XJe6Rr",
+    "before_after_image_crHyXG",
     "rich_text_ppnHyf",
     "avis_clients_trippago_AbBCeG",
-    "before_after_image_crHyXG",
     "1780182895f878666b",
     "17801855621b1488ff",
     "1780185967c1c00274",

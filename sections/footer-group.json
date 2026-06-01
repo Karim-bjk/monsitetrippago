@@ -108,8 +108,8 @@
         "text": {
           "type": "text",
           "settings": {
-            "title": "About",
-            "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
+            "title": "Service client",
+            "content": "<p>Mail : contact@trippago.com</p><p>Horaires d'ouvertures : du lundi au vendredi de 9h à 18h, le samedi et dimanche du 10h à 12h.</p>",
             "enable_follow_on_shop": true
           }
         }

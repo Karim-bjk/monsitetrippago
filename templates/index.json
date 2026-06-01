@@ -406,9 +406,11 @@
     "featured_product_4hjB8c": {
       "type": "featured-product",
       "blocks": {
-        "vendor_4VgVXJ": {
-          "type": "vendor",
-          "settings": {}
+        "rating_VaVTQk": {
+          "type": "rating",
+          "settings": {
+            "show_empty": true
+          }
         },
         "title_nNJVyx": {
           "type": "title",
@@ -420,16 +422,16 @@
           "type": "badges",
           "settings": {}
         },
+        "rapi_rapi_bundle_UppBTc": {
+          "type": "shopify://apps/rapi/blocks/rapi-bundle/99617c17-a32b-4e70-a883-7a155610d032",
+          "settings": {
+            "product": "trippago-le-flacon-de-voyage-4-en-1"
+          }
+        },
         "price_jzjExd": {
           "type": "price",
           "settings": {
             "show_taxes_notice": false
-          }
-        },
-        "rating_VaVTQk": {
-          "type": "rating",
-          "settings": {
-            "show_empty": false
           }
         },
         "separator_8Gbhcz": {
@@ -438,6 +440,7 @@
         },
         "description_gkULt4": {
           "type": "description",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "icon_width": 20,
@@ -476,11 +479,11 @@
         }
       },
       "block_order": [
-        "vendor_4VgVXJ",
+        "rating_VaVTQk",
         "title_nNJVyx",
         "badges_UMPP7J",
+        "rapi_rapi_bundle_UppBTc",
         "price_jzjExd",
-        "rating_VaVTQk",
         "separator_8Gbhcz",
         "description_gkULt4",
         "variant_picker_j7NFCN",
@@ -491,7 +494,7 @@
       "name": "Featured product",
       "settings": {
         "full_width": true,
-        "product": "",
+        "product": "trippago-le-flacon-de-voyage-4-en-1",
         "desktop_media_width": 55,
         "desktop_media_layout": "carousel_thumbnails_left",
         "mobile_media_size": "expanded",

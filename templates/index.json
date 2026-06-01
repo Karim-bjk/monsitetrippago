@@ -400,6 +400,12 @@
             "collapse_content": false
           }
         },
+        "liquid_Dggz6a": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n  .stock-badge-wrap {\n    display: flex;\n    justify-content: center;\n    margin: 10px 0;\n  }\n  .stock-badge {\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    font-family: Arial, sans-serif;\n    font-size: 15px;            /* taille conservée */\n    font-weight: 700;           /* gras = plus d'urgence */\n    color: #c81e1e;             /* texte rouge */\n    background-color: #fff0f0;  /* fond rouge très clair */\n    border: 1.5px solid #e02424;/* cadre rouge */\n    border-radius: 8px;\n    padding: 8px 16px;\n  }\n  .stock-badge .dot {\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background-color: #e02424;\n    display: inline-block;\n    animation: pulse 1.2s infinite;\n  }\n  @keyframes pulse {\n    0%   { transform: scale(1);   box-shadow: 0 0 0 0 rgba(224,36,36,.5); }\n    70%  { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(224,36,36,0); }\n    100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(224,36,36,0); }\n  }\n</style>\n\n<div class=\"stock-badge-wrap\">\n  <div class=\"stock-badge\">\n    <span class=\"dot\"></span>\n    <span>Stock limité, commandez maintenant !</span>\n  </div>\n</div>"
+          }
+        },
         "buy_buttons_NTqj8T": {
           "type": "buy_buttons",
           "settings": {
@@ -423,6 +429,7 @@
         "rapi_rapi_bundle_UppBTc",
         "separator_8Gbhcz",
         "description_gkULt4",
+        "liquid_Dggz6a",
         "buy_buttons_NTqj8T",
         "pickup_availability_4d3V6D"
       ],

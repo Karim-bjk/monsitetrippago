@@ -499,7 +499,7 @@
         "item_RADMiE": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/etape_3_reinserer.png",
+            "image": "shopify://shop_images/etape_3_reinserer_portrait.png",
             "icon": "none",
             "icon_width": 48,
             "title": "Réinsère le flacon",
@@ -509,7 +509,7 @@
         "item_CEcQf8": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/etape_4_verrouiller.png",
+            "image": "shopify://shop_images/etape_4_verrouiller_portrait.png",
             "icon": "none",
             "icon_width": 48,
             "title": "Verrouille la base",

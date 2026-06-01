@@ -479,10 +479,11 @@
         "item_A33MTa": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/etape_1_capuchon.png",
             "icon": "none",
             "icon_width": 48,
-            "title": "Heading",
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "title": "Soulève le capuchon",
+            "content": "<p>Dévisse la tête de la pompe d'un geste pour accéder aux 4 flacons internes.</p>"
           }
         },
         "item_JYin6D": {

@@ -479,7 +479,7 @@
         "item_A33MTa": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/etape_1_capuchon.png",
+            "image": "shopify://shop_images/etape_1_capuchon_portrait.png",
             "icon": "none",
             "icon_width": 48,
             "title": "Soulève le capuchon",
@@ -489,7 +489,7 @@
         "item_JYin6D": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/etape_2_remplir.png",
+            "image": "shopify://shop_images/etape_2_remplir_portrait.png",
             "icon": "none",
             "icon_width": 48,
             "title": "Remplis le flacon",

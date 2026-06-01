@@ -543,29 +543,69 @@
         "166442457738b23caf-0": {
           "type": "item",
           "settings": {
-            "title": "Do you ship overseas?",
-            "content": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+            "title": "▸ 30 ml par flacon, c'est suffisant pour un voyage ?",
+            "content": "<p>Pour un week-end ou une semaine, largement. 30 ml de shampoing correspondent à environ 7-10 lavages pour cheveux courts à mi-longs, et 5-7 lavages pour cheveux longs. Pour les très gros consommateurs, prévois de recharger sur place — le flacon est conçu pour être rechargé à volonté.</p>"
           }
         },
         "166442457738b23caf-1": {
           "type": "item",
           "settings": {
-            "title": "How long will it take to get my orders?",
-            "content": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+            "title": "▸ Est-ce vraiment accepté en bagage cabine ?",
+            "content": "<p>IOui. Chaque compartiment fait 30 ml, soit bien en dessous de la limite de 100 ml imposée par toutes les compagnies aériennes (UE, USA, Asie). Le total de 120 ml répartis dans 4 contenants individuels respecte les règles IATA. Tu peux le glisser directement dans ton sac à liquides.</p>"
           }
         },
         "166442457738b23caf-2": {
           "type": "item",
           "settings": {
-            "title": "Any question?",
-            "content": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+            "title": "▸ Le flacon fuit-il vraiment pas, même en soute ?",
+            "content": "<p>La pompe se verrouille automatiquement quand elle est repliée à plat (zéro pression possible sur le mécanisme). Chaque flacon interne dispose d'un double joint étanche. Sur nos tests internes en soute pressurisée, 0 fuite sur 100 cycles. Si malgré tout tu rencontres une fuite dans les 60 premiers jours, on te rembourse intégralement.</p>"
+          }
+        },
+        "item_6cVnyD": {
+          "type": "item",
+          "settings": {
+            "title": "▸ Est-ce que la pompe est facile à utiliser ?",
+            "content": "<p>Oui — même un enfant de 10 ans s'en sert sans problème. Petite astuce : pour les 2 premières utilisations, pose le flacon sur une surface plate et appuie avec la paume de la main pour amorcer la pompe. Ensuite elle devient fluide.</p>"
+          }
+        },
+        "item_VEpEar": {
+          "type": "item",
+          "settings": {
+            "title": "▸ Comment je nettoie les flacons internes ?",
+            "content": "<p>Ils se détachent en quelques secondes. Tu les rinces à l'eau tiède savonneuse, tu les laisses sécher, tu les remets en place. Aucun résidu ne s'accumule grâce à la large ouverture.</p>"
+          }
+        },
+        "item_tcWNNL": {
+          "type": "item",
+          "settings": {
+            "title": "▸ Combien de temps pour la livraison ?",
+            "content": "<p>Expédition sous 24h ouvrées. Livraison gratuite en France en 2 à 4 jours ouvrés.</p>"
+          }
+        },
+        "item_FteqQF": {
+          "type": "item",
+          "settings": {
+            "title": "▸ Si je ne suis pas satisfait, je peux me faire rembourser ?",
+            "content": "<p>Oui — garantie satisfait ou remboursé sous 60 jours, sans poser de questions. Tu nous renvoies le produit, on te rembourse intégralement. Les retours sont gratuits.</p>"
+          }
+        },
+        "item_mXRqYL": {
+          "type": "item",
+          "settings": {
+            "title": "▸ Quelle est la durée de vie du produit ?",
+            "content": "<p>Avec un usage normal (1 à 4 voyages par mois), le flacon est conçu pour durer 3 à 5 ans. La coque en ABS résiste aux chocs, les flacons internes en PET alimentaire ne se déforment pas.</p>"
           }
         }
       },
       "block_order": [
         "166442457738b23caf-0",
         "166442457738b23caf-1",
-        "166442457738b23caf-2"
+        "166442457738b23caf-2",
+        "item_6cVnyD",
+        "item_VEpEar",
+        "item_tcWNNL",
+        "item_FteqQF",
+        "item_mXRqYL"
       ],
       "settings": {
         "full_width": false,

@@ -489,10 +489,11 @@
         "item_JYin6D": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/etape_2_remplir.png",
             "icon": "none",
             "icon_width": 48,
-            "title": "Heading",
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "title": "Remplis le flacon",
+            "content": "<p>Verse ton produit dans chaque flacon gradué jusqu'au repère 30 ml. Entonnoir offert, zéro débordement.</p>"
           }
         },
         "item_RADMiE": {

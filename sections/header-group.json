@@ -14,6 +14,13 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "message_pa6GAd": {
+          "type": "message",
+          "settings": {
+            "text": "Offre Limitée",
+            "url": ""
+          }
+        },
         "message_chyYi6": {
           "type": "message",
           "settings": {
@@ -31,7 +38,7 @@
         "message_8pFAJy": {
           "type": "message",
           "settings": {
-            "text": "Service client 7j/7",
+            "text": "Service Client 7j/7",
             "url": ""
           }
         },
@@ -44,6 +51,7 @@
         }
       },
       "block_order": [
+        "message_pa6GAd",
         "message_chyYi6",
         "message_KtP8JW",
         "message_8pFAJy",

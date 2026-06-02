@@ -536,6 +536,36 @@
         "heading_gradient": ""
       }
     },
+    "1780409076f4479513": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_YFxzJc": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "trippago-le-flacon-de-voyage-4-en-1",
+            "aggregated": false,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": false
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_YFxzJc"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -665,6 +695,7 @@
     "1780186698dd0a27aa",
     "featured_product_4hjB8c",
     "images_with_text_scrolling_YKd73b",
+    "1780409076f4479513",
     "faq",
     "contact_jyCG8E"
   ]

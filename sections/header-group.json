@@ -14,6 +14,13 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "message_chyYi6": {
+          "type": "message",
+          "settings": {
+            "text": "Satisfait ou Remboursé 60 jours",
+            "url": ""
+          }
+        },
         "message_KtP8JW": {
           "type": "message",
           "settings": {
@@ -37,6 +44,7 @@
         }
       },
       "block_order": [
+        "message_chyYi6",
         "message_KtP8JW",
         "message_8pFAJy",
         "message"

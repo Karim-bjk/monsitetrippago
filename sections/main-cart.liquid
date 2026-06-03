@@ -10,7 +10,7 @@
         <p class="h4">{{ 'cart.general.empty' | t }}</p>
 
         {%- assign button_content = 'cart.general.continue_shopping' | t -%}
-        {%- render 'button', href: settings.cart_empty_button_link, size: 'xl', content: button_content -%}
+        {%- render 'button', href: routes.root_url, size: 'xl', content: button_content -%}
       </div>
     </div>
   {%- else -%}
